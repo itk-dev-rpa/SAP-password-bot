@@ -1,5 +1,6 @@
 """This module contains the main process of the robot."""
 
+import os
 import secrets
 
 from OpenOrchestrator.orchestrator_connection.connection import OrchestratorConnection
@@ -15,9 +16,13 @@ def process(orchestrator_connection: OrchestratorConnection) -> None:
     for name in credential_names:
         orchestrator_connection.log_info(f"Changing password for {name}.")
 
-        new_password = create_password()
         cred = orchestrator_connection.get_credential(name)
+
+        new_password = create_password()
+
         sap_login.change_password(username=cred.username, old_password=cred.password, new_password=new_password)
+
+        orchestrator_connection.update_credential(name, new_username=cred.username, new_password=new_password)
 
     orchestrator_connection.log_info(f"Changed {len(credential_names)} passwords.")
 
@@ -29,3 +34,10 @@ def create_password() -> str:
         A random 16 length string.
     """
     return secrets.token_urlsafe(16)[:16]
+
+
+if __name__ == '__main__':
+    conn_string = os.getenv("OpenOrchestratorConnString")
+    crypto_key = os.getenv("OpenOrchestratorKey")
+    oc = OrchestratorConnection("Password Test", conn_string, crypto_key, "")
+    process(oc)
