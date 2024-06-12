@@ -12,6 +12,7 @@ def process(orchestrator_connection: OrchestratorConnection) -> None:
     orchestrator_connection.log_trace("Running process.")
 
     credential_names = orchestrator_connection.process_arguments.split(",")
+    credential_names = [c.strip() for c in credential_names]
 
     for name in credential_names:
         orchestrator_connection.log_info(f"Changing password for {name}.")
@@ -28,7 +29,7 @@ def process(orchestrator_connection: OrchestratorConnection) -> None:
 
 
 def create_password() -> str:
-    """Generate a 16 length password containing [A-Z][a-z][_-].
+    """Generate a 16 character password containing [A-Z][a-z][_-].
 
     Returns:
         A random 16 length string.
