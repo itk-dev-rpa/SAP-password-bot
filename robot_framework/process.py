@@ -34,7 +34,7 @@ def create_password() -> str:
     Returns:
         A random 16 length string.
     """
-    return secrets.token_urlsafe(16)[:16]
+    return secrets.token_urlsafe(15)[:15] + secrets.randbelow(10)
 
 
 if __name__ == '__main__':
