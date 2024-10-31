@@ -17,7 +17,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
-[Unreleased]: https://github.com/itk-dev-rpa/SAP-password-bot/compare/1.0.2...HEAD
 [1.0.2]: https://github.com/itk-dev-rpa/SAP-password-bot/releases/tag/1.0.2
 [1.0.1]: https://github.com/itk-dev-rpa/SAP-password-bot/releases/tag/1.0.1
 [1.0.0]: https://github.com/itk-dev-rpa/SAP-password-bot/releases/tag/1.0.0
