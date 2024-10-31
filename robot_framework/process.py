@@ -29,12 +29,12 @@ def process(orchestrator_connection: OrchestratorConnection) -> None:
 
 
 def create_password() -> str:
-    """Generate a 16 character password containing [A-Z][a-z][_-].
+    """Generate a 16 character password containing [A-Z][a-z][_-][0-9] always ending on a number.
 
     Returns:
         A random 16 length string.
     """
-    return secrets.token_urlsafe(15)[:15] + secrets.randbelow(10)
+    return secrets.token_urlsafe(15)[:15] + str(secrets.randbelow(10))
 
 
 if __name__ == '__main__':
