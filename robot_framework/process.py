@@ -1,6 +1,5 @@
 """This module contains the main process of the robot."""
 
-import os
 import secrets
 
 from OpenOrchestrator.orchestrator_connection.connection import OrchestratorConnection
