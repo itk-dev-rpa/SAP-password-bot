@@ -40,5 +40,5 @@ def create_password() -> str:
 if __name__ == '__main__':
     conn_string = os.getenv("OpenOrchestratorConnString")
     crypto_key = os.getenv("OpenOrchestratorKey")
-    oc = OrchestratorConnection("Password Test", conn_string, crypto_key, "")
+    oc = OrchestratorConnection("Password Test", conn_string, crypto_key, "", "", "")
     process(oc)
