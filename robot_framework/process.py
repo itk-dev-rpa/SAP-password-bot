@@ -1,6 +1,5 @@
 """This module contains the main process of the robot."""
 
-import os
 import secrets
 
 from OpenOrchestrator.orchestrator_connection.connection import OrchestratorConnection
@@ -35,10 +34,3 @@ def create_password() -> str:
         A random 16 length string.
     """
     return secrets.token_urlsafe(15)[:15] + str(secrets.randbelow(10))
-
-
-if __name__ == '__main__':
-    conn_string = os.getenv("OpenOrchestratorConnString")
-    crypto_key = os.getenv("OpenOrchestratorKey")
-    oc = OrchestratorConnection("Password Test", conn_string, crypto_key, "")
-    process(oc)
